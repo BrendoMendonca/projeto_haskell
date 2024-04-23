@@ -21,7 +21,7 @@ fazerJogada tabuleiro (linha, coluna) jogador =
   take linha tabuleiro ++
   [take coluna (tabuleiro !! linha) ++ [jogador] ++ drop (coluna + 1) (tabuleiro !! linha)] ++
   drop (linha + 1) tabuleiro
-  -- ^ substitui a célula especificada pela jogada do jogador
+  -- substitui a célula especificada pela jogada do jogador
 
 --função para verificar se há uma condição de vitória no tabuleiro
 verificarVitoria :: Tabuleiro -> Bool
@@ -30,10 +30,10 @@ verificarVitoria tab = any linhaCompleta (linhas ++ colunas ++ diagonais)
     linhas = tab
     colunas = transpose tab
     diagonais = [diagonal tab, diagonal (map reverse tab)]
-    -- ^calcula as diagonais do tabuleiro
+    --calcula as diagonais do tabuleiro
     diagonal t = [t !! i !! i | i <- [0..2]]
     linhaCompleta linha = all (== 'X') linha || all (== 'O') linha
-    -- verifica se uma linha, coluna ou diagonal está completa
+    --verifica se uma linha, coluna ou diagonal está completa
 
 --função que verifica se o tabuleiro está cheio (sem espaços vazios)
 tabuleiroCheio :: Tabuleiro -> Bool
