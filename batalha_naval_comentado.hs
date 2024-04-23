@@ -1,4 +1,4 @@
-import Data.Array
+import Data.Array --módulo para manipulação de array
 
 --definições de tipos
 type Tabuleiro = Array (Int, Int) Char  --o tabuleiro é um array 2D de caracteres
