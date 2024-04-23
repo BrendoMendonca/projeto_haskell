@@ -21,11 +21,6 @@ atira coord tabuleiro = tabuleiro // [(coord, marca)]
 imprimeTabuleiro :: Tabuleiro -> IO ()
 imprimeTabuleiro tabuleiro = mapM_ print [ [tabuleiro ! (i,j) | j <- [1..10]] | i <- [1..10]]
 
---função principal que inicia o jogo
-main :: IO ()
-main = do
-  let tabuleiro = inicializaTabuleiro
-  loopJogo tabuleiro
 
 --função auxiliar para converter a string de entrada do usuário em uma tupla de int (coordenadas)
 analisaEntrada :: String -> Coordenada
@@ -56,3 +51,9 @@ loopJogo tabuleiro = do
   if navioAfundado novoTabuleiro coordenadasNavio
     then putStrLn "Todos os navios foram afundados! Fim de jogo."
     else loopJogo novoTabuleiro  --continua o loop do jogo se nem todos os navios foram afundados
+
+--função principal que inicia o jogo
+main :: IO ()
+main = do
+  let tabuleiro = inicializaTabuleiro
+  loopJogo tabuleiro
